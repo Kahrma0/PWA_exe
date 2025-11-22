@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Iceberg</title>
+<link rel="manifest" src="manifest-json.js">
+<link rel="stylesheet" href="/assets/css/style.css">
+<style>
+/* div */
+/* div > img {
+border-radius: 8px;
+width: 100%;
+height: auto;
+}
+div{
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(15px, fr)
+        ) ;
+    gap: 32px;
+} */
+
+/* body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+}
+/* Hero / Publicidad */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.fade-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.fade-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+.fade-slide.active {
+    opacity: 1;
+}
+
+
+.p {
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    z-index: 3;
+    text-align: center;
+}
+
+
+/* Noticias + Carrusel */
+.section {
+    padding: 40px 20px;
+    text-align: center;
+}
+.carousel {
+    max-width: 350px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    object-position: center;
+    object-fit: fill;
+}
+
+.slider{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+/* nuevo slide */
+.slide {
+    min-width: 100%;
+    height: 100%;
+}
+.slide img {
+    margin: 0;
+    width: 50%;
+    height: 70%;
+    align-items: center;
+    padding: 0;
+    object-fit:fill; /* Ajusta y recorta para simetrizar sin deformar */
+    object-position: center; /* Centra la imagen */
+}
+.controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.indicador {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.indicador.activo {
+    background: #333;
+}
+.descripcion {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+}
+.titulo {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+}
+/* ///////// */
+
+.carousel img {
+    width: 100%;
+    border-radius: 10px;
+}
+.carousel-description {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #444;
+}
+.carousel button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: #817171;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 40px;
+
+}
+
+/* span */
+
+
+</style>
+</head>
+<body>
+
+<!-- Navegador -->
+
+<nav>
+    <a class="home-link" href="/index.html"><img style="width: 60px;" rel="icon" src="/img-stock/icons/ice-cream.png"><p>ICEBERG</p></a>
+    
+    <nav>
+        <input type="checkbox" id="sidebar-active">
+        <label for="sidebar-active" class="open-sidebar-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+        </label>
+        <label id="overlay" for="sidebar-active"></label>
+        <div class="links-container">
+            <label for="sidebar-active" class="close-sidebar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </label>
+                
+                <a href="/views/menu.html">MENU</a> 
+                <a href="/views/configuracion.html">AJUSTES</a>
+                <a href="login.html">LOGIN</a>
+                <a href="/views/instalador.html">INSTALL</a>
+                
+            </div>
+    </nav>
+</nav>
+
+<!-- Publicidad (Fade Slider) -->
+<div class="hero">
+<div class="fade-slider">
+    <div class="fade-slide active" style="background-image: url(/1.jpg)"></div>
+    <div class="fade-slide" style="background-image: url(/2.jpg);"></div>
+    <div class="fade-slide" style="background-image: url(/3.jpg);"></div>
+</div>
+<div class="hero-text">
+    <div class="p">¿Quieres refrescarte?</div>
+    <div class="p">¡Come un helado!</div></div>
+</div>
+
+
+<!-- Noticias / Nuevos Productos -->
+<section class="section">
+<h2>Nuevos Productos</h2>
+<div class="carousel">
+    <div class="slider" id="slider">
+<!-- Desc e img -->
+    <div class="slide"><img src="/img-stock/man-go.png" alt="Imagen 1"></div>
+    <div class="slide"><img src="/img-stock/uva-ras.png" alt="Imagen 2"></div>
+    <div class="slide"><img src="/img-stock/" alt="Imagen 3"></div>
+    <div class="slide"><img src="/img-stock/sol-eta.jpg" alt="Imagen 4"></div>
+    <div class="slide"><img src="https://via.placeholder.com/1000x500" alt="Imagen 3"></div>
+    <div class="slide"><img src="https://via.placeholder.com/1000x500" alt="Imagen 3"></div>
+    </div>
+</div>    
+<!-- ////////////// -->
+<!-- <img id="carousel-img" src="img-stock\man-go.png" alt="Producto"> -->
+<!-- <p id="carousel-desc" class="carousel-description">Mangonada</p> -->
+<!-- ///////////// -->
+<!-- Controles -->
+<div class="titulo" id="titulo">titulo de la imagen 1</div>
+<div class="descripcion" id="descripcion">Descripción de la imagen 1</div>
+    <div class="controles">
+        <button id="prev">&lt;</button>
+        <div class="indicadores" id="indicadores"></div>
+        <button id="next">&gt;</button>
+    </div>
+<!-- <button onclick="prevSlide()"><</button>
+<button onclick="nextSlide()">></button> -->
+<!-- ////////////// -->
+</section>
+
+
+<!-- Footer -->
+<footer>
+<style>
+/* Desktop: mostrar listas abiertas como secciones normales */
+    @media (min-width: 690px) {
+        details.about{ 
+        display: flex;
+        flex-wrap: wrap;
+        text-align: left;
+        align-content: center;
+        }
+    }
+
+
+/* Móvil: usar listas retráctiles */
+    @media (max-width: 699px) {
+        details {
+        background: #444;
+        padding: 10px;
+        border-radius: 8px;
+        list-style: none;
+        }
+        details summary {
+        cursor: pointer;
+        font-size: 1.1rem;
+        }
+    }
+</style>
+<div style="max-width: 900px; margin: auto; text-align: left;">
+
+
+<!-- Listas retráctiles -->
+<div style="justify-content: space-around; margin-bottom: 30px;">
+    <details >
+    <summary style="cursor:pointer; font-size: 1.1rem;">Sobre Nosotros</summary>
+    <ul class="about" style="list-style:none; padding-left:10px;">
+    <li><a href="#" style="color: #ccc; text-decoration:none;">Quiénes somos</a></li>
+    <li><a href="#" style="color: #ccc; text-decoration:none;">Nuestra misión</a></li>
+    <li><a href="#" style="color: #ccc; text-decoration:none;">Historia</a></li>
+    </ul>
+    </details>
+
+
+    <details>
+    <summary style="cursor:pointer; font-size: 1.1rem;">Atención al Cliente</summary>
+    <ul style="list-style:none; padding-left:10px;">
+    <li><a href="#" style="color: #ccc; text-decoration:none;">Centro de ayuda</a></li>
+    <li><a href="#" style="color: #ccc; text-decoration:none;">Contacto</a></li>
+    <li><a href="#" style="color: #ccc; text-decoration:none;">Soporte</a></li>
+    </ul>
+    </details>
+
+
+    <details>
+    <summary style="cursor:pointer; font-size: 1.1rem;">Productos</summary>
+    <ul style="list-style:none; padding-left:10px;">
+    <li><a href="#" style="color: #ccc; text-decoration:none;">Helados</a></li>
+    <li><a href="#" style="color: #ccc; text-decoration:none;">Raspados</a></li>
+    <li><a href="#" style="color: #ccc; text-decoration:none;">Paquetes</a></li>
+    </ul>
+    </details>
+</div>
+
+
+<!-- Redes sociales -->
+<hr class="solid">
+<div style="text-align: center; margin: 20px 0;">
+<p>Nuestras redes sociales</p>
+<span style="display:inline-block; align-content: center; align-items: center; width:40px; height:40px; border-radius:50%; background:#555; margin:5px;"><a href="https://www.facebook.com"><img rel="icon" src="/img-stock/icons/facebook.png"></a></span>
+<span style="display:inline-block; align-content: center; align-items: center; width:40px; height:40px; border-radius:50%; background:#555; margin:5px;"><a href="https://www.instagram.com"><img rel="icon" src="/img-stock/icons/instagram.png"></a></span>
+<span style="display:inline-block; align-content: center; align-items: center; width:40px; height:40px; border-radius:50%; background:#555; margin:5px;"><a href="https://www.tiktok.com"><img rel="icon" src="/img-stock/icons/tiktok.png"></a></span>
+</div>
+
+
+<!-- Enlaces legales -->
+<div style="text-align:center; color:#ccc; font-size: 0.9rem; line-height: 2;">
+<a href="#" style="color:#ccc; margin: 0 10px; text-decoration:none;">Accesibilidad Web</a>
+<a href="#" style="color:#ccc; margin: 0 10px; text-decoration:none;">Aviso de Privacidad</a>
+<a href="#" style="color:#ccc; margin: 0 10px; text-decoration:none;">Condiciones de Uso</a>
+<a href="#" style="color:#ccc; margin: 0 10px; text-decoration:none;">Mapa del Sitio</a>
+<a href="#" style="color:#ccc; margin: 0 10px; text-decoration:none;">Preferencias de Cookies</a>
+</div>
+
+
+<!-- Copyright -->
+<p style="text-align:center; margin-top: 20px; color:#aaa;">© 2025 Helados y Raspados || Iceberg. Todos los derechos reservados.</p>
+</div>
+</footer>
+
+
+<script>
+/* Fade Slider */
+let fadeIndex = 0;
+
+
+
+function changeFadeSlide() {
+slides[fadeIndex].classList.remove('active');
+fadeIndex = (fadeIndex + 1) % slides.length;
+slides[fadeIndex].classList.add('active');
+}
+setInterval(changeFadeSlide, 4000);
+
+// Carousel nuevo
+const slider = document.getElementById('slider');
+const slides = slider.children;
+const indicadores = document.getElementById('indicadores');
+const descripcion = document.getElementById('descripcion');
+const titulo = document.getElementById('titulo');
+        
+let currentIndex = 0;
+
+const descripciones = [
+    "Una combinacion de pedacitos de mango con lo agridulce de el chamoy y el tamarindo",
+    "Nada como estar enamorado con un helado de uva",
+    "El agua de la sandia es refrescante pero que tal una paleta de sandia",
+    "",
+    
+];
+const titulos = [
+    "Mangonada",
+    "Smoothie de uva",
+    "Paleta de sandia",
+
+];
+// Crear indicadores
+for (let i = 0; i < slides.length; i++) {
+    const indicador = document.createElement('div');
+    indicador.classList.add('indicador');
+    indicador.addEventListener('click', () => goToSlide(i));
+    indicadores.appendChild(indicador);
+}
+updateIndicadores();
+updateDescripcion2();
+updateDescripcion();
+
+document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlider();
+});
+document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+});
+
+function goToSlide(index) {
+    currentIndex = index;
+    updateSlider();
+}
+
+function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateIndicadores();
+    updateDescripcion2();
+    updateDescripcion();
+}
+
+function updateIndicadores() {
+    const indicadoresList = indicadores.children;
+    for (let i = 0; i < indicadoresList.length; i++) {
+        indicadoresList[i].classList.toggle('activo', i === currentIndex);
+    }
+}
+
+function updateDescripcion() {
+    descripcion.textContent = descripciones[currentIndex];
+}
+function updateDescripcion2() {
+    titulo.textContent = titulos[currentIndex];
+}
+
+
+
+/* Carousel */
+// const images = [
+// {
+// src:  "../img-stock/man-go.png",
+// desc: 'Mangonada'
+// },
+// {
+// src:  "../img-stock/sand-ia.png",
+// desc: 'Paleta de sandia de arbol.'
+// },
+// {
+// src:  "../img-stock/sol-eta.jpg",
+// desc: 'Rebanadas de soletas.'
+// },
+// {
+// src:  "../img-stock/uva-ras.png",
+// desc: 'Smoothie de uva.'
+// }
+// ];
+
+
+// let index = 0;
+// const imgEl = document.getElementById('carousel-img');
+// const descEl = document.getElementById('carousel-desc');
+
+
+// function updateCarousel() {
+// imgEl.src = images[index].src;
+// descEl.textContent = images[index].desc;
+// }
+
+
+// function nextSlide() {
+// index = (index + 1) % images.length;
+// updateCarousel();
+// }
+
+
+// function prevSlide() {
+// index = (index - 1 + images.length) % images.length;
+// updateCarousel();
+// }
+</script>
+
+</div>
+</body>
+</html>

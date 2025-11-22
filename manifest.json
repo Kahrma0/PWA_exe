@@ -1,0 +1,16 @@
+{
+    "name": "Raspas PWA",
+    "short_name": "Raspas",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "portrail",
+    "background_color": "#0F1E40",
+    "theme_color": "#0F1E40",
+    "icons": [
+        {
+            "src": "/img-stock/icons/ice-cream.png",
+            "sizes": "512x512",
+            "typr": "image/png"   
+        }
+    ]
+}

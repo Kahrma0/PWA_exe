@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instala ICEBERG</title>
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <a href="/index.html"><< volver</a>
+<div style="display: flex; justify-content: center; align-content: center; padding-top: 50%;">
+    <button id="installBtn" style="padding:12px; border-radius:8px; background:#ff7ecb; border:none; color:white; font-size:1.1rem;">
+        Instala nuestra aplicación
+    </button>
+</div>
+
+<script>
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    // Detecta si el navegador permite instalar la PWA
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+
+        // Muestra el botón
+        installBtn.style.display = 'block';
+
+        installBtn.addEventListener('click', async () => {
+            installBtn.style.display = 'none';
+
+            // Muestra el prompt nativo
+            deferredPrompt.prompt();
+
+            // Espera la respuesta del usuario
+            const { outcome } = await deferredPrompt.userChoice;
+
+            console.log("Resultado de instalación:", outcome);
+
+            deferredPrompt = null;
+        });
+    });
+
+    // Si ya está instalada, oculta el botón
+    window.addEventListener('appinstalled', () => {
+        deferredPrompt = null;
+        installBtn.style.display = 'none';
+        console.log("PWA instalada con éxito.");
+    });
+</script>
+
+</body>
+</html>
