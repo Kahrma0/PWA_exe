@@ -24,13 +24,13 @@ div{
 } */
 
 /* body */
-body {
+body{
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f7f7f7;
 }
 /* Hero / Publicidad */
-.hero {
+.hero{
     position: relative;
     width: 100%;
     height: 300px;
@@ -40,13 +40,13 @@ body {
     justify-content: center;
     overflow: hidden;
 }
-.fade-slider {
+.fade-slider{
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
 }
-.fade-slide {
+.fade-slide{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -58,16 +58,16 @@ body {
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
 }
-.fade-slide.active {
+.fade-slide.active{
     opacity: 1;
 }
 
 
-.p {
+.p{
     position: relative;
     font-size: 2rem;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    text-shadow: 0 0 10px rgba(0,0,0,0.9);
     z-index: 3;
     text-align: center;
 }
@@ -80,6 +80,7 @@ body {
 }
 .carousel {
     max-width: 350px;
+    max-height: 349px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -208,6 +209,8 @@ footer {
                 <a href="/views/configuracion.html">AJUSTES</a>
                 <a href="login.html">LOGIN</a>
                 <a href="/views/instalador.html">INSTALL</a>
+                <a href="/views/carrito.html">car</a>
+                
                 
             </div>
     </nav>
@@ -216,7 +219,7 @@ footer {
 <!-- Publicidad (Fade Slider) -->
 <div class="hero">
 <div class="fade-slider">
-    <div class="fade-slide active" style="background-image: url(/1.jpg)"></div>
+    <div class="fade-slide active" style="background-image: url(/1.jpg);"></div>
     <div class="fade-slide" style="background-image: url(/2.jpg);"></div>
     <div class="fade-slide" style="background-image: url(/3.jpg);"></div>
 </div>
@@ -234,10 +237,8 @@ footer {
 <!-- Desc e img -->
     <div class="slide"><img src="/img-stock/man-go.png" alt="Imagen 1"></div>
     <div class="slide"><img src="/img-stock/uva-ras.png" alt="Imagen 2"></div>
-    <div class="slide"><img src="/img-stock/" alt="Imagen 3"></div>
-    <div class="slide"><img src="/img-stock/sol-eta.jpg" alt="Imagen 4"></div>
-    <div class="slide"><img src="https://via.placeholder.com/1000x500" alt="Imagen 3"></div>
-    <div class="slide"><img src="https://via.placeholder.com/1000x500" alt="Imagen 3"></div>
+    <div class="slide"><img src="/img-stock/sand-ia2.png" alt="Imagen 3"></div>
+    <div class="slide"><img src="/img-stock/sol-eta2.png" alt="Imagen 4"></div>
     </div>
 </div>    
 <!-- ////////////// -->
@@ -351,16 +352,18 @@ footer {
 <script>
 /* Fade Slider */
 let fadeIndex = 0;
-
-
+const slides1 = document.querySelectorAll('.fade-slide');
 
 function changeFadeSlide() {
-slides[fadeIndex].classList.remove('active');
-fadeIndex = (fadeIndex + 1) % slides.length;
-slides[fadeIndex].classList.add('active');
+slides1[fadeIndex].classList.remove('active');
+fadeIndex = (fadeIndex + 1) % slides1.length;
+slides1[fadeIndex].classList.add('active');
 }
+
 setInterval(changeFadeSlide, 4000);
 
+</script>
+<script>
 // Carousel nuevo
 const slider = document.getElementById('slider');
 const slides = slider.children;
@@ -374,13 +377,14 @@ const descripciones = [
     "Una combinacion de pedacitos de mango con lo agridulce de el chamoy y el tamarindo",
     "Nada como estar enamorado con un helado de uva",
     "El agua de la sandia es refrescante pero que tal una paleta de sandia",
-    "",
+    "Un bizcocho tan dulce que sentiras la lengua en las nubes",
     
 ];
 const titulos = [
     "Mangonada",
     "Smoothie de uva",
     "Paleta de sandia",
+    "Soleta de frambuesa"
 
 ];
 // Crear indicadores
