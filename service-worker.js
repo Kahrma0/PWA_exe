@@ -2,14 +2,12 @@ const CACHE_NAME = "inventario-pwa-v1";
 const FILES_TO_CACHE = [
     "/",
     "/index.html",
-
     "/offline.html",
     "/manifest.json",
     "/service-worker.js",
     "/assets/css/style.css",
     "/assets/css/menu_stl.css",
     "/assets/js/carrito.js",
-    "/assets/js/db.js",
     "/views/menu.html",
     "/views/reportes.html"
 ];
@@ -34,7 +32,7 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
     if (event.request.mode == "navigate") {
         event.respondWith (
-          fetch(event.request).catch(() => caches.match("/offline.html"))
+          fetch(event.request).catch(() => caches.match("/index.html"))
         );
     return;
     }
