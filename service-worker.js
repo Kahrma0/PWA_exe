@@ -2,13 +2,15 @@ const CACHE_NAME = "inventario-pwa-v1";
 const FILES_TO_CACHE = [
     "/",
     "/index.html",
+
     "/offline.html",
     "/manifest.json",
+    "/service-worker.js",
     "/assets/css/style.css",
-    "/assets/js/app.js",
+    "/assets/css/menu_stl.css",
+    "/assets/js/carrito.js",
     "/assets/js/db.js",
     "/views/menu.html",
-    "/views/configuracion.html",
     "/views/reportes.html"
 ];
 

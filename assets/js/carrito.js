@@ -39,14 +39,15 @@ function toggleCarrito() {
     document.getElementById("carrito").classList.toggle("abierto");
 }
 
+
 function comprar() {
     if (carrito.length === 0) {
-        alert("Tu carrito está vacío 🛒");
+        alert("Tu carrito está vacío");
         return;
     }
 
     // Crear mensaje para WhatsApp
-    let mensaje = " *Pedido Cafetería Coffee Cat*\n\n ";
+    let mensaje = " *Pedido*\n\n ";
     let total = 0;
 
     carrito.forEach(item => {
@@ -56,10 +57,10 @@ function comprar() {
 
     mensaje += `\n *Total:* $${total}.00 MXN`;
     mensaje += `\n\n 🎉 ¡Gracias por su compra! 🎉 `;
-    mensaje += `\n\n Su pedido ha sido recibido y será preparado con mucho amor 😺☕ `;
+    mensaje += `\n\n Su pedido esta en proceso`;
 
     // Enviar a WhatsApp
-    const numero = "528261697182"; // +52 826 169 71 82
+    const numero = "528231094576"; // +52 826 169 71 82
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
 
