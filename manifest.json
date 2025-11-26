@@ -1,11 +1,11 @@
 {
     "name": "Raspas PWA",
-    "short_name": "Raspas",
+    "short_name": "ICEBERG",
     "start_url": "/index.html",
     "display": "standalone",
     "orientation": "portrail",
-    "background_color": "#0F1E40",
-    "theme_color": "#0F1E40",
+    "background_color": "#333",
+    "theme_color": "#333",
     "icons": [
         {
             "src": "/img-stock/icons/ice-cream.png",

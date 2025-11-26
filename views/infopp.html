@@ -12,25 +12,22 @@ html {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.5;
-    color: #333;
+    background-color: #333;
     padding: 0;
-    margin: 0;
+    margin: 10;
 }
 
-#contenido {
-    background-color: #555;
-    max-height: 390;
-}
 
 /* Tamaños base */
 h1 { font-size: 2rem; }
-h2 { font-size: 1.6rem; }
-h3 { font-size: 1.3rem; }
+h2 { font-size: 1.6rem; color: #989797; background-color: rgb(32, 32, 32); }
+h3 { font-size: 1.3rem; color: #dedede ;}
 p  { font-size: 1rem; }
 
 /* Para textos en listas o subapartados */
 li, a {
     font-size: 1rem;
+    color: aqua;
 }
 
 /* Mejor lectura en pantallas grandes */
@@ -55,20 +52,48 @@ li, a {
     <div class="contenido">
         <h2>Sobre Nosotros</h2>
         <section id="quiensomos">
-            <li><a></a></li>
+            <h3>Quienes somos</h3>
+            <li><a>En ICEBERG somos una empresa dedicada a crear experiencias
+            refrescantes con nuestros helados artesanales. Combinamos ingredientes de alta calidad con recetas originales para ofrecer productos que alegran el día.
+            </a></li>
         </section>
-        <section id="nuestramis"></section>
-        <section id="historia"></section>
+        <section id="nuestramis">
+            <h3>Nuesta misión</h3>
+            <li><a>Brindar productos fríos y deliciosos que superen las 
+            expectativas de nuestros clientes, manteniendo siempre un compromiso con la calidad, la innovación y el servicio.
+            </a></li>
+        </section>
+        <section id="historia">
+            <h3>Historia</h3>
+            <li><a>ICEBERG nació como un pequeño negocio familiar apasionado por los 
+            sabores auténticos. Con el tiempo, crecimos gracias a la preferencia de nuestros clientes, convirtiéndonos en una marca reconocida por su frescura y variedad.
+            </a></li>
+        </section>
     </div>
     <div class="contenido">
         <h2>Atención al Cliente</h2>
-        <section id="help"></section>
-        <section id="contacto"></section>
-        <section id="soporte"></section>
+        <section id="help">
+            <h3>Centro de Ayuda</h3>
+            <li><a>Encuentra respuestas a las preguntas más frecuentes sobre nuestros productos, pedidos y servicios.
+            </a></li>
+        </section>
+        <section id="soporte">
+            <h3>Soporte</h3>
+            <li><a>Brindamos apoyo a nuestros clientes para resolver cualquier duda, sugerencia o inconveniente relacionado con nuestras tiendas o compras en línea.</a></li>
+        </section>
     </div>
     <div class="contenido">
         <h2>Productos</h2>
-        <section id=""></section>
+        <section id="helados">
+            <h3>Helados</h3>
+            <li>Cremosos, artesanales y disponibles en una gran variedad de sabores clásicos y especiales.
+            </li>
+            <h3>Raspados</h3>
+            <li>Cremosos, artesanales y disponibles en una gran variedad de sabores clásicos y especiales.
+            </li>
+            <h3>Paletas</h3>
+            <li>Ofrecemos paletas heladas de cualquier sabor.</li>
+        </section>
     </div>
 </body>
 </html>
