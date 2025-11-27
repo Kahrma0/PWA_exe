@@ -79,7 +79,9 @@ header {
 <body>
 <nav>
     <header id="header">
-        <a href="/index.html">&lt;Volver</a>
+        <div class="1h" style="padding-right: 3%;">
+        <a href="/index.html"><p>&lt;Volver</p></a>
+        </div>
         <h3>Menu de articulos</h3> 
         <img class="carrito" src="/img-stock/icons/carrito-de-compras.png" alt="carrito">
     </header>
@@ -88,7 +90,7 @@ header {
 
 
 <!-- Boton de carrito -->
-<div id="carrito">
+<div id="carrito" onclick="event.stopImmediatePropagation()">
     <h2>🛒 Tu Carrito</h2>
 
     <div id="lista-carrito"></div>
@@ -152,20 +154,22 @@ header {
 <script src="/assets/js/carrito.js"></script>
 <script>
 document.addEventListener("click", function(e) {
+
     const carrito = document.getElementById("carrito");
     const boton = document.getElementById("boton-carrito");
 
-    if (!carrito) return; // seguridad por si no existe
+    if (!carrito) return;
 
-    // si el carrito está abierto
+    // Si el carrito está abierto
     if (carrito.classList.contains("abierto")) {
 
-        // si se hizo clic fuera del carrito y fuera del botón
+        // Si el clic NO fue dentro del carrito Y NO fue en el botón
         if (!carrito.contains(e.target) && !boton.contains(e.target)) {
             carrito.classList.remove("abierto");
         }
     }
 });
+
 </script>
 </body>
 

@@ -5,13 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instala ICEBERG</title>
     <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    <a href="/index.html"><< volver</a>
-<div style="display: flex; justify-content: center; align-content: center; padding-top: 50%;">
-    <button id="installBtn" style="padding:12px; border-radius:8px; background:#ff7ecb; border:none; color:white; font-size:1.1rem;">
+<nav>
+    <a class="home-link" href="/index.html"><img style="width: 60px;" rel="icon" src="/img-stock/icons/ice-cream.png"><p>ICEBERG</p></a>
+    
+    <nav>
+        <input type="checkbox" id="sidebar-active">
+        <label for="sidebar-active" class="open-sidebar-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+        </label>
+        <label id="overlay" for="sidebar-active"></label>
+        <div class="links-container">
+            <label for="sidebar-active" class="close-sidebar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </label>
+                
+                <a href="/index.html">INICIO</a>
+                <a href="/views/menu.html">MENU</a> 
+                
+            </div>
+    </nav>
+</nav>
+<div style="text-align: center; margin-top: 1%;">
+<li><p>Instala nuesta app para mejor comodidad</p></li>
+<div class="contenedor" style="display:flex; margin-top: 2%; justify-content:space-around; object-position: center;">
+    <button id="installBtn" style="padding:12px; border-radius:8px; background:#2f1df8; border:none; color:white; font-size:1.1rem;">
         Instala nuestra aplicación
     </button>
+</div>
 </div>
 
 <script>
